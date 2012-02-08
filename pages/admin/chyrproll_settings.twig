@@ -1,0 +1,29 @@
+{% extends "layout.twig" %}
+
+{% block title %}${ "ChyrpRoll Settings" | translate("ChyrpRoll Settings") }{% endblock %}
+
+{% block content %}
+            <h1>${ "ChyrpRoll Settings" }</h1>
+            <form id="chyrproll_settings" class="split" action="{% admin "chyrproll_settings" %}" method="post">
+                <fieldset>
+                    <p>
+                        <label for="chyrproll_title">${ "Title" }</label>
+                        <input class="text" type="text" name="chyrproll_title" value="${ site.chyrproll_title | escape }" id="chyrproll_title" />
+						<span class="sub"><?php echo __('Title for your blogroll.', 'metadata'); ?></span>
+                    </p>
+                    <p>
+                        <label for="chyrproll_blogs">${ "Blogs" }</label>
+                        <textarea class="code" name="chyrproll_blogs" id="chyrproll_blogs" rows="9" cols="50">${ blogtext | escape }</textarea>
+						<span class="sub"><?php echo __('Blogs in your blogroll, each entry on a newline. (Eg; "Blog url,Blog title")', 'metadata'); ?></span>
+                    </p>
+
+                    <p class="buttons">
+                        <p>
+                            <button type="submit" class="yay">${ "Update" | translate }</button>
+                        </p>
+                    </p>
+
+                    <input type="hidden" name="hash" value="$site.secure_hashkey" id="hash" />
+                </fieldset>
+            </form>
+{% endblock %}

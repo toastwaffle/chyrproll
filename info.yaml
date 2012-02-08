@@ -1,0 +1,15 @@
+name: Chyrp Roll
+url: http://itsdeandavidson.co.uk,http://www.github.com/toastwaffle/chyrp-modules
+version: 3.0
+description: A "Blog Roll" module for chyrp.
+license:
+author:
+  name: Dean Davidson, Samuel Littley
+  url: http://itsdeandavidson.co.uk,http://www.toastwaffle.com
+
+notifications:
+
+
+# 1.0: First release. By Dean Davidson
+# 2.0: Update for new version of Chyrp. Added customisable title for sidebar, for multipurpose functionality. By Samuel Littley.
+# 3.0: Updated to improve usability. Links are now on multiple lines in text area for ease of setting up. By Samuel Littley
