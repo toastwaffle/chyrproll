@@ -8,7 +8,7 @@
 			$config->set('chyrproll_blogs', array("Dean Davidson" => "http://blog.itsdeandavidson.co.uk", "Samuel Littley" => "http://www.toastwaffle.com", "Chyrp" => "http://chyrp.net/blog/"), true);
 			$config->set('chyrproll_title', "Blogroll", true);
 		}
-		
+
 		static function __uninstall($confirm)
 		{
 			if($confirm)
@@ -38,7 +38,7 @@
 		        }
 				return $admin->display("chyrproll_settings", array("blogtext" => $blogtext));
 			}
-				
+
 			$lines = explode("\n",$_POST['chyrproll_blogs']);
 			$lines = array_filter($lines,'trim');
 			$blogs = array();
@@ -56,22 +56,22 @@
 			if(($config->set("chyrproll_blogs", $blogs)) && ($config->set("chyrproll_title", $_POST['chyrproll_title'])))
 				Flash::notice(__("Settings updated."), "/admin/?action=chyrproll_settings");
 		}
-		
+
 		public function sidebar()
 		{
 			$config = Config::current();
 			$blogs = $config->chyrproll_blogs;
-			
+
 			if (!empty($blogs))
 			{
-				echo '                <h1>'.$config->chyrproll_title.'</h1>';
+				echo '                <div id="blogroll"><h1>'.$config->chyrproll_title.'</h1>';
 				echo '                <ul id="blogroll_blogs">';
-			
+
 				foreach($blogs as $key => $blog)
 				{
 					echo '                    <li><a href="' . $blog . '">' . $key . '</a></li>';
 				}
-				echo '                </ul>';
+				echo '                </ul></div>';
 			}
 		}
 	}
